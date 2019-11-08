@@ -1,0 +1,27 @@
+<div class="product">
+    <div class="image">
+    </div>
+    <section class="info-actions">
+        <div class="info">
+            <div class="info-line">Código de Barras: <input #bar_code></div>
+            <div class="info-line">Link Foto: <input #photo></div>
+            <div class="info-line">Nome: <input #name></div>
+            <div class="info-line">Quantidade: <input type="number" #amount></div>
+            <div class="info-line">
+                <span>Categoria</span>
+                <select #category> 
+                    <option *ngFor="let category of categories" value="{{category.name}}">{{category?.name}}</option>
+                </select>
+            </div>
+            <div class="info-line">
+                <span>Descrição:</span> 
+                <div>
+                    <textarea pInputTextarea autoResize="autoResize" #description></textarea>
+                </div>
+            </div>
+        <div class="actions">
+            <div class="delete"><button pButton type="button" label="Salvar" (click)="addProduct(bar_code.value, name.value, category.value, amount.value, description.value, photo.value)"></button></div>
+        </div>
+        </div>
+    </section>
+</div>

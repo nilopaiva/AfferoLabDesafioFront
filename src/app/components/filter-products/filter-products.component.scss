@@ -1,0 +1,14 @@
+.filter {
+    text-align: center;
+}
+.filter-input {
+    height: 33px;
+    width: 80%; 
+    margin: 5px;
+    font-size: 20px;
+
+    @media (min-width: 500px){
+        height: 33px;
+        width: 350px;
+    }
+}

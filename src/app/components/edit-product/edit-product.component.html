@@ -1,0 +1,28 @@
+<div class="product">
+    <div class="image" [ngStyle]="{'background-image': 'url('+photo.value+')'}">
+    </div>
+    <section class="info-actions">
+        <div class="info">
+            <div class="info-line"><span>Código de Barras: </span> <input [value]="product?.bar_code" #barCode></div>
+            <div class="info-line"><span>Link Foto:</span> <input [value]="product?.photo" #photo></div>
+            <div class="info-line">Nome: <input [value]="product?.name" #name></div>
+            <div class="info-line">Quantidade: <input type="number" [value]="product?.amount" #amount></div>
+            <div class="info-line">
+                <span>Categoria: </span>
+                <select #category [(ngModel)]="product.category"> 
+                    <!-- Trazer a categoria do produto como padrão do select-->
+                    <option *ngFor="let category of categories" value="{{category.name}}">{{category?.name}}</option>
+                </select>
+            </div>
+            <div class="info-line">
+                <span>Descrição:</span> 
+                <div>
+                    <textarea pInputTextarea autoResize="autoResize" [value]="product?.description" #description></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="actions">
+            <div class="delete"><button pButton type="button" label="Salvar" (click)="editProduct(barCode.value, name.value, category.value, amount.value, description.value, photo.value)"></button></div>
+        </div>
+    </section>
+</div>
